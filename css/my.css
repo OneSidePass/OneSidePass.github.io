@@ -70,3 +70,12 @@
         font-size: 1.5rem;
     }
 }
+
+@font-face{
+    font-family: 'daogao';
+    src: url('../font/dangao.ttf');
+}
+
+body{
+    font-family: 'dangao';
+}
