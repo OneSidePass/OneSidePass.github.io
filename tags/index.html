@@ -275,7 +275,7 @@
 
 <script>
     // 每天切换 banner 图.  Switch banner image every day.
-    $('.bg-cover').css('background-image', 'url(/medias/banner/5.jpg)');
+    $('.bg-cover').css('background-image', 'url(/medias/banner/6.jpg)');
 </script>
 
 
@@ -321,6 +321,15 @@
                     </span>
                 </a>
                 
+                
+                <a href="/tags/Pixiv/" title="Pixiv: 1">
+                    <span class="chip center-align waves-effect waves-light
+                             chip-default "
+                            data-tagname="Pixiv" style="background-color: #E8F8F5;">Pixiv
+                        <span class="tag-length">1</span>
+                    </span>
+                </a>
+                
             </div>
         </div>
     </div>
@@ -345,7 +354,7 @@
 <script type="text/javascript">
     
 
-    $('#tag-wordcloud').jQCloud([{"text":"tools","weight":1,"link":"/tags/tools/"},{"text":"share","weight":2,"link":"/tags/share/"},{"text":"diary","weight":1,"link":"/tags/diary/"}], {
+    $('#tag-wordcloud').jQCloud([{"text":"tools","weight":1,"link":"/tags/tools/"},{"text":"share","weight":2,"link":"/tags/share/"},{"text":"diary","weight":1,"link":"/tags/diary/"},{"text":"Pixiv","weight":1,"link":"/tags/Pixiv/"}], {
         autoResize: true
     });
 </script>
@@ -465,11 +474,11 @@
                         diffMinutes * minutes) / seconds);
                     if (startYear == todayYear) {
                         document.getElementById("year").innerHTML = todayYear;
-                        document.getElementById("sitetime").innerHTML = "本站已安全运行 " + diffDays + " 天 " + diffHours +
+                        document.getElementById("sitetime").innerHTML = "网站在各种灾难中运行了 " + diffDays + " 天 " + diffHours +
                             " 小时 " + diffMinutes + " 分钟 " + diffSeconds + " 秒";
                     } else {
                         document.getElementById("year").innerHTML = startYear + " - " + todayYear;
-                        document.getElementById("sitetime").innerHTML = "本站已安全运行 " + diffYears + " 年 " + diffDays +
+                        document.getElementById("sitetime").innerHTML = "网站在各种灾难中运行了 " + diffYears + " 年 " + diffDays +
                             " 天 " + diffHours + " 小时 " + diffMinutes + " 分钟 " + diffSeconds + " 秒";
                     }
                 }
@@ -515,6 +524,10 @@
     </a>
 
 </div>
+        <div align=center> 图片外链由<a href="https://img.fghrsh.net/upload/" target="_blank"> <img src="./logofghrsh.png"
+            width="5%" />友情提供</a>
+        </div>   
+
     </div>
 </footer>
 
