@@ -4,6 +4,31 @@
   
     
     <entry>
+      <title>巧妙使用ffmpeg扒网络视频</title>
+      <link href="/posts/36835.html"/>
+      <url>/posts/36835.html</url>
+      
+        <content type="html"><![CDATA[<h1 id="巧妙使用ffmpeg扒网络视频"><a href="#巧妙使用ffmpeg扒网络视频" class="headerlink" title="巧妙使用ffmpeg扒网络视频"></a>巧妙使用ffmpeg扒网络视频</h1><ul><li><h2 id="1-首先当然需要idm-下载地址"><a href="#1-首先当然需要idm-下载地址" class="headerlink" title="1 首先当然需要idm 下载地址"></a>1 首先当然需要idm <a href="https://wwa.lanzous.com/iwna1ei5j7i" target="_blank" rel="noopener">下载地址</a></h2><h3 id="压缩包解压后打开文件夹，然后点击绿化文件依照指示操作安装浏览器插件"><a href="#压缩包解压后打开文件夹，然后点击绿化文件依照指示操作安装浏览器插件" class="headerlink" title="压缩包解压后打开文件夹，然后点击绿化文件依照指示操作安装浏览器插件"></a>压缩包解压后打开文件夹，然后点击绿化文件依照指示操作安装浏览器插件</h3><p><img src="http://fp1.fghrsh.net/2020/07/11/ec10c137e1d02272899792a385e17416.png" alt=""></p><h3 id="如未完成插件安装也可手动到相应浏览器自行安装插件"><a href="#如未完成插件安装也可手动到相应浏览器自行安装插件" class="headerlink" title="如未完成插件安装也可手动到相应浏览器自行安装插件"></a>如未完成插件安装也可手动到相应浏览器自行安装插件</h3><h3 id="下面为win10自带浏览器以及Google浏览器示例："><a href="#下面为win10自带浏览器以及Google浏览器示例：" class="headerlink" title="下面为win10自带浏览器以及Google浏览器示例："></a>下面为win10自带浏览器以及Google浏览器示例：</h3><p> 右上角找到相应插件管理<br><img src="http://fp1.fghrsh.net/2020/07/11/51bc220924a2d7b6f6d1d66657506f6b.png" alt=""><br> 勾选启用，如无插件请微软商城自行下载<br><img src="http://fp1.fghrsh.net/2020/07/11/4a8481f27892077205930e2e3b053d40.png" alt=""><br>Google相同<br><img src="http://fp1.fghrsh.net/2020/07/11/39351bcf9732d32d9c85130fa48abb6f.png" alt=""><br><img src="http://fp1.fghrsh.net/2020/07/11/eeec30ea0a5451f9c3b5331dd7cdc14f.png" alt=""></p></li><li><h2 id="接着安装ffmpeg-下载地址"><a href="#接着安装ffmpeg-下载地址" class="headerlink" title="接着安装ffmpeg 下载地址"></a>接着安装ffmpeg <a href="https://wwa.lanzous.com/iHaEqei5l7a" target="_blank" rel="noopener">下载地址</a></h2><p>解压后将bin文件夹中三个.exe文件剪切至system32文件夹方便操作<br><img src="http://fp1.fghrsh.net/2020/07/11/5b2cbac2eff2b8c0380340552e1bfe19.png" alt=""><br><img src="http://fp1.fghrsh.net/2020/07/11/2eff8e9fda702f225a706e348e2f84d6.png" alt=""><br>最后再加上预览工具前期的准备工作就做好了 <a href="https://wwa.lanzous.com/ivYPDei6raf" target="_blank" rel="noopener">potplayer下载链接</a></p></li><li><h1 id="2-接下来以Google浏览器为例扒youku上的视频"><a href="#2-接下来以Google浏览器为例扒youku上的视频" class="headerlink" title="2. 接下来以Google浏览器为例扒youku上的视频"></a>2. 接下来以Google浏览器为例扒youku上的视频</h1><h2 id="1，右键点击检查进入控制台"><a href="#1，右键点击检查进入控制台" class="headerlink" title="1，右键点击检查进入控制台"></a>1，右键点击检查进入控制台</h2><p><img src="http://fp1.fghrsh.net/2020/07/11/0086304a3735a9c062cd341b1c5e132e.png" alt=""><br><img src="http://fp1.fghrsh.net/2020/07/11/6509a948076c896c7b32c4c21d18bb4d.png" alt=""> </p><h2 id="2，在network中搜索-appinfo-（尝试刷新）抓取json包，复制响应数据"><a href="#2，在network中搜索-appinfo-（尝试刷新）抓取json包，复制响应数据" class="headerlink" title="2，在network中搜索 appinfo （尝试刷新）抓取json包，复制响应数据"></a>2，在network中搜索 appinfo （尝试刷新）抓取json包，复制响应数据</h2><p><img src="http://fp1.fghrsh.net/2020/07/11/ee7544c7f982556149ae9152bb03ebee.png" alt=""> </p><h2 id="3，-打开idm选择从剪贴板中批量下载"><a href="#3，-打开idm选择从剪贴板中批量下载" class="headerlink" title="3， 打开idm选择从剪贴板中批量下载"></a>3， 打开idm选择从剪贴板中批量下载</h2><p><img src="http://fp1.fghrsh.net/2020/07/11/4244a703c3b8551ef09a4aed55f7770e.png" alt=""> </p><h2 id="4，可以看见有多个M3U8链接，分别对应不同清晰度，我们只需要点击编辑复制下载地址"><a href="#4，可以看见有多个M3U8链接，分别对应不同清晰度，我们只需要点击编辑复制下载地址" class="headerlink" title="4，可以看见有多个M3U8链接，分别对应不同清晰度，我们只需要点击编辑复制下载地址"></a>4，可以看见有多个M3U8链接，分别对应不同清晰度，我们只需要点击编辑复制下载地址</h2><p><img src="http://fp1.fghrsh.net/2020/07/11/ce433e104269e9fb34ad118fc7a10392.png" alt=""><br><img src="http://fp1.fghrsh.net/2020/07/11/7c469422a51c5af0b4ac3c0ee48f46d4.png" alt=""></p><h2 id="5，potplayer预览查看是否为自己需要的清晰度"><a href="#5，potplayer预览查看是否为自己需要的清晰度" class="headerlink" title="5，potplayer预览查看是否为自己需要的清晰度"></a>5，potplayer预览查看是否为自己需要的清晰度</h2><p><img src="http://fp1.fghrsh.net/2020/07/11/532a6755d1f2f931d15147a1f8b5f620.png" alt=""><br><img src="http://fp1.fghrsh.net/2020/07/11/a6678aa8ca4755283158efa844a8e005.png" alt=""></p></li></ul><h2 id="6-下载"><a href="#6-下载" class="headerlink" title="6,下载"></a>6,下载</h2><h2 id="win-R打开并运行cmd命令台调用ffmpeg下载视频"><a href="#win-R打开并运行cmd命令台调用ffmpeg下载视频" class="headerlink" title="win+R打开并运行cmd命令台调用ffmpeg下载视频"></a>win+R打开并运行cmd命令台调用ffmpeg下载视频</h2><p><img src="http://fp1.fghrsh.net/2020/07/11/1cb6f2a6fece96da1282fb5ced6124c6.png" alt=""></p><p><img src="http://fp1.fghrsh.net/2020/07/11/2150dc3498a94bcb3c3b556f4f5c544b.png" alt=""></p><pre class=" language-bash"><code class="language-bash">$ ffmpeg -i <span class="token string">"地址” -c copy -f mp4 "</span>E:\test.mp4<span class="token string">" # 地址即为刚刚预览的M3U8链接，最后的为保存地址"</span>盘符:\文件名.mp4"</code></pre><p>回车运行下载<br>等待片刻<br><img src="http://fp1.fghrsh.net/2020/07/11/6e11536b4e791e2e9568bc40183256d5.png" alt=""></p><h3 id="停止后即可在保存位置查看下载好的视频"><a href="#停止后即可在保存位置查看下载好的视频" class="headerlink" title="停止后即可在保存位置查看下载好的视频"></a>停止后即可在保存位置查看下载好的视频</h3><p><img src="http://fp1.fghrsh.net/2020/07/11/d0c080645a70dce9ec16f188a95b2986.png" alt=""></p><h1 id="以上为全部内容，如有误欢迎在下方评论指出"><a href="#以上为全部内容，如有误欢迎在下方评论指出" class="headerlink" title="以上为全部内容，如有误欢迎在下方评论指出"></a>以上为全部内容，如有误欢迎在下方评论指出</h1><p><img src="http://fp1.fghrsh.net/2020/07/11/aca2264154a239670a109faacfad83e9.jpg" alt=""></p>]]></content>
+      
+      
+      <categories>
+          
+          <category> tools </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> tips </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>青春ブタ野郎(mayiwolaopo)</title>
       <link href="/posts/45015.html"/>
       <url>/posts/45015.html</url>
