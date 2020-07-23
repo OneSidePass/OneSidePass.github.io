@@ -245,7 +245,7 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('http://fp1.fghrsh.net/2020/07/23/72f2242e1a326307ae942fee49ba6869.md.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('http://fp1.fghrsh.net/2020/07/14/c206c4758a63a6aaf7d87ac1479c1550.th.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
@@ -399,7 +399,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2020-07-23
+                    2020-07-24
                 </div>
                 
 
@@ -418,7 +418,7 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="python"><a href="#python" class="headerlink" title="python"></a>python</h1><p>first code(主要是循环):</p>
+                <h1 id="python"><a href="#python" class="headerlink" title="python"></a>python</h1><p>first code:</p>
 <pre class=" language-bash"><code class="language-bash">print<span class="token punctuation">(</span><span class="token string">"hellow world"</span><span class="token punctuation">)</span></code></pre>
 <p>first day:</p>
 <pre class=" language-bash"><code class="language-bash">name <span class="token operator">=</span> input<span class="token punctuation">(</span><span class="token string">"please input yourname:"</span><span class="token punctuation">)</span>
@@ -501,7 +501,9 @@ print<span class="token punctuation">(</span>a.replace<span class="token punctua
 b <span class="token operator">=</span> <span class="token string">"OSP UMR STF"</span>
 print<span class="token punctuation">(</span>b.split<span class="token punctuation">(</span><span class="token punctuation">))</span>            <span class="token comment" spellcheck="true">#字符串转成列表，默认用空格来分   ['OSP', 'UMR', 'STF']</span>
 print<span class="token punctuation">(</span>b.split<span class="token punctuation">(</span><span class="token string">"P"</span>,1<span class="token punctuation">))</span>       <span class="token comment" spellcheck="true">#按什么来分，分几次 ['OS', ' UMR STF']</span></code></pre>
-<p>output: </p>
+<ul>
+<li>output: </li>
+</ul>
 <pre class=" language-bash"><code class="language-bash">-------------------Onesidepass--------------------
 3
 1
@@ -544,8 +546,8 @@ print<span class="token punctuation">(</span>f<span class="token string">'一等
     <span class="token keyword">for</span> j <span class="token keyword">in</span> range<span class="token punctuation">(</span>1,i+1<span class="token punctuation">)</span>:
         print<span class="token punctuation">(</span>f<span class="token string">"{i}x{j}={i*j}"</span>,end<span class="token operator">=</span><span class="token string">"  "</span><span class="token punctuation">)</span>
     print<span class="token punctuation">(</span><span class="token punctuation">)</span></code></pre>
-<p>output:</p>
-<pre class=" language-bash"><code class="language-bash">1x1<span class="token operator">=</span>1  
+<ul>
+<li>output:<pre class=" language-bash"><code class="language-bash">1x1<span class="token operator">=</span>1  
 2x1<span class="token operator">=</span>2  2x2<span class="token operator">=</span>4  
 3x1<span class="token operator">=</span>3  3x2<span class="token operator">=</span>6  3x3<span class="token operator">=</span>9  
 4x1<span class="token operator">=</span>4  4x2<span class="token operator">=</span>8  4x3<span class="token operator">=</span>12  4x4<span class="token operator">=</span>16  
@@ -554,7 +556,50 @@ print<span class="token punctuation">(</span>f<span class="token string">'一等
 7x1<span class="token operator">=</span>7  7x2<span class="token operator">=</span>14  7x3<span class="token operator">=</span>21  7x4<span class="token operator">=</span>28  7x5<span class="token operator">=</span>35  7x6<span class="token operator">=</span>42  7x7<span class="token operator">=</span>49  
 8x1<span class="token operator">=</span>8  8x2<span class="token operator">=</span>16  8x3<span class="token operator">=</span>24  8x4<span class="token operator">=</span>32  8x5<span class="token operator">=</span>40  8x6<span class="token operator">=</span>48  8x7<span class="token operator">=</span>56  8x8<span class="token operator">=</span>64  
 9x1<span class="token operator">=</span>9  9x2<span class="token operator">=</span>18  9x3<span class="token operator">=</span>27  9x4<span class="token operator">=</span>36  9x5<span class="token operator">=</span>45  9x6<span class="token operator">=</span>54  9x7<span class="token operator">=</span>63  9x8<span class="token operator">=</span>72  9x9<span class="token operator">=</span>81 </code></pre>
-
+</li>
+</ul>
+<h3 id="京牌摇号"><a href="#京牌摇号" class="headerlink" title="京牌摇号"></a>京牌摇号</h3><pre class=" language-bash"><code class="language-bash"><span class="token function">import</span> string
+<span class="token function">import</span> random
+count <span class="token operator">=</span> 0              <span class="token comment" spellcheck="true">#计数器</span>
+car_nums <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span>          <span class="token comment" spellcheck="true">#空集合存数据</span>
+<span class="token keyword">while</span> count <span class="token operator">&lt;</span> 4:
+    <span class="token keyword">for</span> i <span class="token keyword">in</span> range<span class="token punctuation">(</span>20<span class="token punctuation">)</span>:
+        n1 <span class="token operator">=</span> random.choice<span class="token punctuation">(</span>string.ascii_uppercase<span class="token punctuation">)</span>    <span class="token comment" spellcheck="true">#随机选取里面的任意一个对象</span>
+        n2 <span class="token operator">=</span> <span class="token string">""</span>.join<span class="token punctuation">(</span>random.sample<span class="token punctuation">(</span>string.ascii_uppercase + string.digits, 5<span class="token punctuation">))</span>
+        c_num <span class="token operator">=</span> <span class="token punctuation">(</span>f<span class="token string">"京{n1}-{n2}"</span><span class="token punctuation">)</span>
+        car_nums.append<span class="token punctuation">(</span>c_num<span class="token punctuation">)</span>
+        print<span class="token punctuation">(</span>c_num,end<span class="token operator">=</span><span class="token string">" "</span><span class="token punctuation">)</span>
+        <span class="token keyword">if</span> i <span class="token operator">==</span> 4 or i <span class="token operator">==</span> 9 or i <span class="token operator">==</span> 14  <span class="token keyword">:</span>    <span class="token comment" spellcheck="true">#换行模块</span>
+            print<span class="token punctuation">(</span><span class="token punctuation">)</span>                          <span class="token comment" spellcheck="true">#换行模块</span>
+    print<span class="token punctuation">(</span><span class="token punctuation">)</span>                                  <span class="token comment" spellcheck="true">#换行模块</span>
+    choice <span class="token operator">=</span> input<span class="token punctuation">(</span><span class="token string">"请输入你选择的车牌,如不满意请输入no:"</span><span class="token punctuation">)</span>.strip<span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token comment" spellcheck="true">#strip 方法去掉头尾空格及特殊字符</span>
+    <span class="token keyword">if</span> choice <span class="token keyword">in</span> car_nums:
+        print<span class="token punctuation">(</span>f<span class="token string">"恭喜您喜提新车牌：{choice}"</span><span class="token punctuation">)</span>
+        exit<span class="token punctuation">(</span><span class="token punctuation">)</span>
+    else:
+        <span class="token keyword">if</span> count <span class="token operator">&lt;</span> 3:
+            print<span class="token punctuation">(</span><span class="token punctuation">)</span>
+            print<span class="token punctuation">(</span><span class="token string">"-------------------抱歉请重试-------------------"</span><span class="token punctuation">)</span>
+            print<span class="token punctuation">(</span><span class="token punctuation">)</span>
+    count +<span class="token operator">=</span> count + 1                         <span class="token comment" spellcheck="true">#计数器</span>
+choice2 <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span>
+<span class="token keyword">while</span> choice2 not <span class="token keyword">in</span> car_nums:                 <span class="token comment" spellcheck="true">#死循环</span>
+    choice2 <span class="token operator">=</span> input<span class="token punctuation">(</span><span class="token string">"三次选择结束请选择车牌："</span><span class="token punctuation">)</span>.strip<span class="token punctuation">(</span><span class="token punctuation">)</span>
+print<span class="token punctuation">(</span>f<span class="token string">"恭喜您喜提新车牌： {choice2}！！！"</span><span class="token punctuation">)</span></code></pre>
+<ul>
+<li>output:<pre class=" language-bash"><code class="language-bash">京L-L45OI 京I-KQAW4 京A-0K54N 京D-JROTH 京Z-L08YE 
+京H-KUDF9 京N-B93G4 京B-FIY7C 京E-7LTNH 京M-FHBEM 
+京H-UCYFI 京D-MDYXV 京E-031IO 京S-H3I7E 京X-F2IU1 
+京Z-WRG7Y 京U-V0TC3 京U-NR83I 京I-2YB4V 京U-M54GU 
+请输入你选择的车牌,如不满意请输入no:no
+</code></pre>
+</li>
+</ul>
+<p>——————-抱歉请重试——————-</p>
+<p>京Q-PV85K 京G-59SLJ 京X-C3Z0R 京P-EGOUV 京R-RI2L8<br>京C-62XPO 京X-48E7C 京L-K75JZ 京I-ZJ68Q 京L-NCRQP<br>京T-5NMXU 京N-XHMVK 京J-6X7D0 京Q-8O1CW 京D-QHLTS<br>京Q-9BNH4 京R-PAJ3T 京H-LWUPY 京A-UYPOW 京W-3PLG2<br>请输入你选择的车牌,如不满意请输入no:ajd;flasd</p>
+<p>——————-抱歉请重试——————-</p>
+<p>京G-FB54N 京J-OGATN 京M-SE7KZ 京N-P5RQA 京L-FKN02<br>京X-KG0UD 京O-TC3PA 京U-FR7EG 京E-L6WZA 京S-01KWE<br>京P-JTMG7 京S-M7PLN 京K-E14CX 京O-02MBE 京I-YUP83<br>京W-GVSXB 京B-DR1C5 京T-6POX3 京A-MSKX9 京G-KB3TQ<br>请输入你选择的车牌,如不满意请输入no:adsfjal;fd<br>三次选择结束请选择车牌：;d;asfjdka<br>三次选择结束请选择车牌：    j<br>三次选择结束请选择车牌： 京L-FKN02<br>恭喜您喜提新车牌： 京L-FKN02！！！</p>
+<pre><code></code></pre>
             </div>
             <hr/>
 
@@ -1057,7 +1102,7 @@ print<span class="token punctuation">(</span>f<span class="token string">'一等
                 <a href="/posts/51872.html">
                     <div class="card-image">
                         
-                        <img src="http://fp1.fghrsh.net/2020/07/23/72f2242e1a326307ae942fee49ba6869.md.jpg" class="responsive-img" alt="python">
+                        <img src="http://fp1.fghrsh.net/2020/07/14/c206c4758a63a6aaf7d87ac1479c1550.th.jpg" class="responsive-img" alt="python">
                         
                         <span class="card-title">python</span>
                     </div>
@@ -1065,14 +1110,15 @@ print<span class="token punctuation">(</span>f<span class="token string">'一等
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            pythonfirst code(主要是循环):
+                            pythonfirst code:
 print("hellow world")
 first day:
 name = input("please input yourname:")
 # print(name)
 #
 #
-# A =
+# A = "2"
+# 
                         
                     </div>
                     <div class="publish-info">
