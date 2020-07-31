@@ -399,7 +399,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2020-07-24
+                    2020-07-31
                 </div>
                 
 
@@ -587,19 +587,36 @@ choice2 <span class="token operator">=</span> <span class="token punctuation">[<
     choice2 <span class="token operator">=</span> input<span class="token punctuation">(</span><span class="token string">"三次选择结束请选择车牌："</span><span class="token punctuation">)</span>.strip<span class="token punctuation">(</span><span class="token punctuation">)</span>
 print<span class="token punctuation">(</span>f<span class="token string">"恭喜您喜提新车牌： {choice2}！！！"</span><span class="token punctuation">)</span></code></pre>
 <ul>
-<li>output:<pre class=" language-bash"><code class="language-bash">京L-L45OI 京I-KQAW4 京A-0K54N 京D-JROTH 京Z-L08YE 
-京H-KUDF9 京N-B93G4 京B-FIY7C 京E-7LTNH 京M-FHBEM 
-京H-UCYFI 京D-MDYXV 京E-031IO 京S-H3I7E 京X-F2IU1 
-京Z-WRG7Y 京U-V0TC3 京U-NR83I 京I-2YB4V 京U-M54GU 
-请输入你选择的车牌,如不满意请输入no:no
-</code></pre>
-</li>
+<li>output:</li>
 </ul>
+<p>京L-L45OI 京I-KQAW4 京A-0K54N 京D-JROTH 京Z-L08YE<br>京H-KUDF9 京N-B93G4 京B-FIY7C 京E-7LTNH 京M-FHBEM<br>京H-UCYFI 京D-MDYXV 京E-031IO 京S-H3I7E 京X-F2IU1<br>京Z-WRG7Y 京U-V0TC3 京U-NR83I 京I-2YB4V 京U-M54GU<br>请输入你选择的车牌,如不满意请输入no:no</p>
 <p>——————-抱歉请重试——————-</p>
 <p>京Q-PV85K 京G-59SLJ 京X-C3Z0R 京P-EGOUV 京R-RI2L8<br>京C-62XPO 京X-48E7C 京L-K75JZ 京I-ZJ68Q 京L-NCRQP<br>京T-5NMXU 京N-XHMVK 京J-6X7D0 京Q-8O1CW 京D-QHLTS<br>京Q-9BNH4 京R-PAJ3T 京H-LWUPY 京A-UYPOW 京W-3PLG2<br>请输入你选择的车牌,如不满意请输入no:ajd;flasd</p>
 <p>——————-抱歉请重试——————-</p>
 <p>京G-FB54N 京J-OGATN 京M-SE7KZ 京N-P5RQA 京L-FKN02<br>京X-KG0UD 京O-TC3PA 京U-FR7EG 京E-L6WZA 京S-01KWE<br>京P-JTMG7 京S-M7PLN 京K-E14CX 京O-02MBE 京I-YUP83<br>京W-GVSXB 京B-DR1C5 京T-6POX3 京A-MSKX9 京G-KB3TQ<br>请输入你选择的车牌,如不满意请输入no:adsfjal;fd<br>三次选择结束请选择车牌：;d;asfjdka<br>三次选择结束请选择车牌：    j<br>三次选择结束请选择车牌： 京L-FKN02<br>恭喜您喜提新车牌： 京L-FKN02！！！</p>
-<pre><code></code></pre>
+<h3 id="列表分类"><a href="#列表分类" class="headerlink" title="列表分类"></a>列表分类</h3><pre class=" language-bash"><code class="language-bash">tu_list <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">[</span><span class="token string">'hk'</span>,80<span class="token punctuation">]</span>,<span class="token punctuation">[</span><span class="token string">'hy'</span>,79<span class="token punctuation">]</span>,<span class="token punctuation">[</span><span class="token string">'kx'</span>,55<span class="token punctuation">]</span>,<span class="token punctuation">[</span><span class="token string">'jc'</span>,89<span class="token punctuation">]</span>,<span class="token punctuation">[</span><span class="token string">'fl'</span>,22<span class="token punctuation">]</span>,<span class="token punctuation">[</span><span class="token string">'ks'</span>,44<span class="token punctuation">]</span>,<span class="token punctuation">[</span><span class="token string">'nb'</span>,99<span class="token punctuation">]</span><span class="token punctuation">]</span>
+new_stu_list <span class="token operator">=</span> <span class="token punctuation">[</span>
+    <span class="token punctuation">[</span><span class="token punctuation">]</span>,    <span class="token comment" spellcheck="true">#100 - 90</span>
+    <span class="token punctuation">[</span><span class="token punctuation">]</span>,    <span class="token comment" spellcheck="true">#89  - 80</span>
+    <span class="token punctuation">[</span><span class="token punctuation">]</span>,    <span class="token comment" spellcheck="true">#79 - 70</span>
+    <span class="token punctuation">[</span><span class="token punctuation">]</span>,    <span class="token comment" spellcheck="true">#69 - 60</span>
+    <span class="token punctuation">[</span><span class="token punctuation">]</span>,    <span class="token comment" spellcheck="true">#59 - 0</span>
+<span class="token punctuation">]</span>
+<span class="token keyword">for</span> i <span class="token keyword">in</span> stu_list:
+    <span class="token keyword">if</span> i<span class="token punctuation">[</span>1<span class="token punctuation">]</span> <span class="token operator">>=</span> 90:
+        new_stu_list<span class="token punctuation">[</span>0<span class="token punctuation">]</span>.append<span class="token punctuation">(</span>i<span class="token punctuation">)</span>
+    <span class="token keyword">elif</span> i<span class="token punctuation">[</span>1<span class="token punctuation">]</span><span class="token operator">>=</span> 80:
+        new_stu_list<span class="token punctuation">[</span>1<span class="token punctuation">]</span>.append<span class="token punctuation">(</span>i<span class="token punctuation">)</span>
+    <span class="token keyword">elif</span> i<span class="token punctuation">[</span>1<span class="token punctuation">]</span><span class="token operator">>=</span> 70:
+        new_stu_list<span class="token punctuation">[</span>2<span class="token punctuation">]</span>.append<span class="token punctuation">(</span>i<span class="token punctuation">)</span>
+    <span class="token keyword">elif</span> i<span class="token punctuation">[</span>1<span class="token punctuation">]</span><span class="token operator">>=</span> 60:
+        new_stu_list<span class="token punctuation">[</span>3<span class="token punctuation">]</span>.append<span class="token punctuation">(</span>i<span class="token punctuation">)</span>
+    else:
+        new_stu_list<span class="token punctuation">[</span>4<span class="token punctuation">]</span>.append<span class="token punctuation">(</span>i<span class="token punctuation">)</span>
+
+print<span class="token punctuation">(</span>new_stu_list<span class="token punctuation">)</span></code></pre>
+<p>效果：<br>[[[‘nb’, 99]], [[‘hk’, 80], [‘jc’, 89]], [[‘hy’, 79]], [], [[‘kx’, 55], [‘fl’, 22], [‘ks’, 44]]]  </p>
+
             </div>
             <hr/>
 
