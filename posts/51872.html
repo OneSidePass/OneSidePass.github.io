@@ -399,7 +399,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2020-08-01
+                    2020-08-02
                 </div>
                 
 
@@ -724,6 +724,46 @@ print<span class="token punctuation">(</span><span class="token string">'清空 
 清空 ：   <span class="token punctuation">{</span><span class="token punctuation">}</span></code></pre>
 </li>
 </ul>
+<h3 id="字典详细操作"><a href="#字典详细操作" class="headerlink" title="字典详细操作"></a>字典详细操作</h3><pre class=" language-bash"><code class="language-bash">name <span class="token operator">=</span> <span class="token punctuation">{</span>                              <span class="token comment" spellcheck="true">#字典</span>
+    <span class="token string">"osp"</span> <span class="token keyword">:</span> <span class="token punctuation">[</span>22,<span class="token string">'student'</span>,1500<span class="token punctuation">]</span>,
+    <span class="token string">"佩奇"</span> <span class="token keyword">:</span> <span class="token punctuation">[</span>14,<span class="token string">"student"</span>,0<span class="token punctuation">]</span>,
+    <span class="token string">"umr"</span>  <span class="token keyword">:</span> <span class="token string">"好吃懒做"</span>
+<span class="token punctuation">}</span>
+name.keys<span class="token punctuation">(</span><span class="token punctuation">)</span>                <span class="token comment" spellcheck="true">#列表形式列出key</span>
+print<span class="token punctuation">(</span>name.keys<span class="token punctuation">(</span><span class="token punctuation">))</span>
+
+name.values<span class="token punctuation">(</span><span class="token punctuation">)</span>              <span class="token comment" spellcheck="true">#列出value</span>
+print<span class="token punctuation">(</span>name.values<span class="token punctuation">(</span><span class="token punctuation">))</span>
+
+name.items<span class="token punctuation">(</span><span class="token punctuation">)</span>               <span class="token comment" spellcheck="true">#以元组的形式列出key：value</span>
+print<span class="token punctuation">(</span>name.items<span class="token punctuation">(</span><span class="token punctuation">))</span>
+
+<span class="token keyword">for</span> k,v <span class="token keyword">in</span> name.items<span class="token punctuation">(</span><span class="token punctuation">)</span>:
+    print<span class="token punctuation">(</span>k,v<span class="token punctuation">)</span>
+<span class="token comment" spellcheck="true">#输出：</span>
+<span class="token comment" spellcheck="true"># osp [22, 'student', 1500]</span>
+<span class="token comment" spellcheck="true"># 佩奇 [14, 'student', 0]</span>
+<span class="token comment" spellcheck="true"># umr 好吃懒做</span>
+
+<span class="token keyword">for</span> i <span class="token keyword">in</span> name:
+    print<span class="token punctuation">(</span>i,name<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">)</span>
+<span class="token comment" spellcheck="true"># osp [22, 'student', 1500]</span>
+<span class="token comment" spellcheck="true"># 佩奇 [14, 'student', 0]</span>
+<span class="token comment" spellcheck="true"># umr 好吃懒做</span>
+
+print<span class="token punctuation">(</span>name<span class="token punctuation">)</span> <span class="token comment" spellcheck="true">#{'osp': [22, 'student', 1500], '佩奇': [14, 'student', 0], 'umr': '好吃懒做'}</span>
+len<span class="token punctuation">(</span>name<span class="token punctuation">)</span>  <span class="token comment" spellcheck="true">#求长度</span>
+print<span class="token punctuation">(</span>len<span class="token punctuation">(</span>name<span class="token punctuation">))</span>  <span class="token comment" spellcheck="true">#3</span>
+<span class="token comment" spellcheck="true">#len 方法是全局的，也可判断列表，字符串的长度 数字不行  解释器自带函数</span>
+len<span class="token punctuation">(</span><span class="token string">"osp"</span><span class="token punctuation">)</span>
+print<span class="token punctuation">(</span>len<span class="token punctuation">(</span><span class="token string">"osp"</span><span class="token punctuation">))</span> <span class="token comment" spellcheck="true">#3</span>
+
+name<span class="token punctuation">[</span><span class="token string">'jack'</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token string">'salary'</span><span class="token keyword">:</span> 2000,<span class="token string">'age'</span><span class="token keyword">:</span> 21 <span class="token punctuation">}</span>  <span class="token comment" spellcheck="true">#字典增加 嵌套</span>
+print<span class="token punctuation">(</span>name<span class="token punctuation">)</span>
+<span class="token comment" spellcheck="true">#{'osp': [22, 'student', 1500], '佩奇': [14, 'student', 0], 'umr': '好吃懒做', 'jack': {'salary': 2000, 'age': 21}}</span>
+
+<span class="token comment" spellcheck="true">#嵌套字典取值</span>
+print<span class="token punctuation">(</span>name<span class="token punctuation">[</span><span class="token string">'jack'</span><span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token string">'salary'</span><span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token comment" spellcheck="true">#2000</span></code></pre>
 
             </div>
             <hr/>
