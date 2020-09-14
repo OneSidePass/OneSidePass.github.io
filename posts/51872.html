@@ -399,7 +399,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2020-08-02
+                    2020-09-14
                 </div>
                 
 
@@ -764,6 +764,162 @@ print<span class="token punctuation">(</span>name<span class="token punctuation"
 
 <span class="token comment" spellcheck="true">#嵌套字典取值</span>
 print<span class="token punctuation">(</span>name<span class="token punctuation">[</span><span class="token string">'jack'</span><span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token string">'salary'</span><span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token comment" spellcheck="true">#2000</span></code></pre>
+<h2 id="dict-类型-复制-copy-方法使用注意事项"><a href="#dict-类型-复制-copy-方法使用注意事项" class="headerlink" title="dict 类型 复制.copy()方法使用注意事项"></a>dict 类型 复制.copy()方法使用注意事项</h2><pre class=" language-bash"><code class="language-bash"><span class="token comment" spellcheck="true"># -*- coding: utf-8 -*-</span>
+english1 <span class="token operator">=</span> <span class="token punctuation">{</span>
+    <span class="token string">"we"</span><span class="token keyword">:</span><span class="token string">"我们"</span>,
+    <span class="token string">"world"</span><span class="token keyword">:</span><span class="token string">"世界"</span>,
+    <span class="token string">"company"</span><span class="token keyword">:</span> <span class="token string">"公司"</span>,
+<span class="token punctuation">}</span>
+english2 <span class="token operator">=</span> english1
+english3 <span class="token operator">=</span> english1.copy<span class="token punctuation">(</span><span class="token punctuation">)</span>
+
+print<span class="token punctuation">(</span><span class="token string">"english1"</span>,english1<span class="token punctuation">)</span>
+print<span class="token punctuation">(</span><span class="token string">"english2"</span>,english2<span class="token punctuation">)</span>
+print<span class="token punctuation">(</span><span class="token string">"english3"</span>,english3<span class="token punctuation">)</span>
+
+print<span class="token punctuation">(</span><span class="token string">"--------------------------"</span><span class="token punctuation">)</span>
+print<span class="token punctuation">(</span><span class="token string">"change english2"</span><span class="token punctuation">)</span>
+english2<span class="token punctuation">[</span><span class="token string">"city"</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token string">"城市"</span>
+
+print<span class="token punctuation">(</span><span class="token string">"english1"</span>,english1<span class="token punctuation">)</span>
+print<span class="token punctuation">(</span><span class="token string">"english2"</span>,english2<span class="token punctuation">)</span>
+print<span class="token punctuation">(</span><span class="token string">"english3"</span>,english3<span class="token punctuation">)</span>
+
+print<span class="token punctuation">(</span><span class="token string">"--------------------------"</span><span class="token punctuation">)</span>
+print<span class="token punctuation">(</span><span class="token string">"change english3"</span><span class="token punctuation">)</span>
+english3<span class="token punctuation">[</span><span class="token string">"school"</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token string">"学校"</span>
+
+print<span class="token punctuation">(</span><span class="token string">"english1"</span>,english1<span class="token punctuation">)</span>
+print<span class="token punctuation">(</span><span class="token string">"english2"</span>,english2<span class="token punctuation">)</span>
+print<span class="token punctuation">(</span><span class="token string">"english3"</span>,english3<span class="token punctuation">)</span></code></pre>
+<p>结果：</p>
+<pre class=" language-bash"><code class="language-bash">english1 <span class="token punctuation">{</span><span class="token string">'we'</span><span class="token keyword">:</span> <span class="token string">'我们'</span>, <span class="token string">'world'</span><span class="token keyword">:</span> <span class="token string">'世界'</span>, <span class="token string">'company'</span><span class="token keyword">:</span> <span class="token string">'公司'</span><span class="token punctuation">}</span>
+english2 <span class="token punctuation">{</span><span class="token string">'we'</span><span class="token keyword">:</span> <span class="token string">'我们'</span>, <span class="token string">'world'</span><span class="token keyword">:</span> <span class="token string">'世界'</span>, <span class="token string">'company'</span><span class="token keyword">:</span> <span class="token string">'公司'</span><span class="token punctuation">}</span>
+english3 <span class="token punctuation">{</span><span class="token string">'we'</span><span class="token keyword">:</span> <span class="token string">'我们'</span>, <span class="token string">'world'</span><span class="token keyword">:</span> <span class="token string">'世界'</span>, <span class="token string">'company'</span><span class="token keyword">:</span> <span class="token string">'公司'</span><span class="token punctuation">}</span>
+--------------------------
+change english2
+english1 <span class="token punctuation">{</span><span class="token string">'we'</span><span class="token keyword">:</span> <span class="token string">'我们'</span>, <span class="token string">'world'</span><span class="token keyword">:</span> <span class="token string">'世界'</span>, <span class="token string">'company'</span><span class="token keyword">:</span> <span class="token string">'公司'</span>, <span class="token string">'city'</span><span class="token keyword">:</span> <span class="token string">'城市'</span><span class="token punctuation">}</span>
+english2 <span class="token punctuation">{</span><span class="token string">'we'</span><span class="token keyword">:</span> <span class="token string">'我们'</span>, <span class="token string">'world'</span><span class="token keyword">:</span> <span class="token string">'世界'</span>, <span class="token string">'company'</span><span class="token keyword">:</span> <span class="token string">'公司'</span>, <span class="token string">'city'</span><span class="token keyword">:</span> <span class="token string">'城市'</span><span class="token punctuation">}</span>
+english3 <span class="token punctuation">{</span><span class="token string">'we'</span><span class="token keyword">:</span> <span class="token string">'我们'</span>, <span class="token string">'world'</span><span class="token keyword">:</span> <span class="token string">'世界'</span>, <span class="token string">'company'</span><span class="token keyword">:</span> <span class="token string">'公司'</span><span class="token punctuation">}</span>
+--------------------------
+change english3
+english1 <span class="token punctuation">{</span><span class="token string">'we'</span><span class="token keyword">:</span> <span class="token string">'我们'</span>, <span class="token string">'world'</span><span class="token keyword">:</span> <span class="token string">'世界'</span>, <span class="token string">'company'</span><span class="token keyword">:</span> <span class="token string">'公司'</span>, <span class="token string">'city'</span><span class="token keyword">:</span> <span class="token string">'城市'</span><span class="token punctuation">}</span>
+english2 <span class="token punctuation">{</span><span class="token string">'we'</span><span class="token keyword">:</span> <span class="token string">'我们'</span>, <span class="token string">'world'</span><span class="token keyword">:</span> <span class="token string">'世界'</span>, <span class="token string">'company'</span><span class="token keyword">:</span> <span class="token string">'公司'</span>, <span class="token string">'city'</span><span class="token keyword">:</span> <span class="token string">'城市'</span><span class="token punctuation">}</span>
+english3 <span class="token punctuation">{</span><span class="token string">'we'</span><span class="token keyword">:</span> <span class="token string">'我们'</span>, <span class="token string">'world'</span><span class="token keyword">:</span> <span class="token string">'世界'</span>, <span class="token string">'company'</span><span class="token keyword">:</span> <span class="token string">'公司'</span>, <span class="token string">'school'</span><span class="token keyword">:</span> <span class="token string">'学校'</span><span class="token punctuation">}</span></code></pre>
+<p>从例子的执行结果可以看出，使用copy方法对获取到的字典做修改，原始的字典不受影响。<br>使用copy方法就像重新写了一个新的字典，只是元素恰巧和原来的字典相同。<br>注意copy进行拷贝是浅拷贝，如果字典的元素值也是字典，那么copy方法只会影响<br>最外层的字典，元素内部还是引用。可以用 <em>深拷贝</em> 解决此类问题。<br>例子：</p>
+<pre class=" language-bash"><code class="language-bash">c<span class="token operator">=</span>copy.copy<span class="token punctuation">(</span>alist<span class="token punctuation">)</span>
+<span class="token operator">>></span><span class="token operator">></span> print alist<span class="token punctuation">;</span>print c
+<span class="token punctuation">[</span>1, 2, 3, <span class="token punctuation">[</span><span class="token string">'a'</span>, <span class="token string">'b'</span><span class="token punctuation">]</span><span class="token punctuation">]</span>
+<span class="token punctuation">[</span>1, 2, 3, <span class="token punctuation">[</span><span class="token string">'a'</span>, <span class="token string">'b'</span><span class="token punctuation">]</span><span class="token punctuation">]</span>
+<span class="token operator">>></span><span class="token operator">></span> alist.append<span class="token punctuation">(</span>5<span class="token punctuation">)</span>
+<span class="token operator">>></span><span class="token operator">></span> print alist<span class="token punctuation">;</span>print c
+<span class="token punctuation">[</span>1, 2, 3, <span class="token punctuation">[</span><span class="token string">'a'</span>, <span class="token string">'b'</span><span class="token punctuation">]</span>, 5<span class="token punctuation">]</span>
+<span class="token punctuation">[</span>1, 2, 3, <span class="token punctuation">[</span><span class="token string">'a'</span>, <span class="token string">'b'</span><span class="token punctuation">]</span><span class="token punctuation">]</span>
+
+alist<span class="token punctuation">[</span>3<span class="token punctuation">]</span>
+<span class="token punctuation">[</span><span class="token string">'a'</span>, <span class="token string">'b'</span><span class="token punctuation">]</span>
+<span class="token operator">>></span><span class="token operator">></span> alist<span class="token punctuation">[</span>3<span class="token punctuation">]</span>.append<span class="token punctuation">(</span><span class="token string">'cccc'</span><span class="token punctuation">)</span>
+<span class="token operator">>></span><span class="token operator">></span> print alist<span class="token punctuation">;</span>print c
+<span class="token punctuation">[</span>1, 2, 3, <span class="token punctuation">[</span><span class="token string">'a'</span>, <span class="token string">'b'</span>, <span class="token string">'cccc'</span><span class="token punctuation">]</span>, 5<span class="token punctuation">]</span>
+<span class="token punctuation">[</span>1, 2, 3, <span class="token punctuation">[</span><span class="token string">'a'</span>, <span class="token string">'b'</span>, <span class="token string">'cccc'</span><span class="token punctuation">]</span><span class="token punctuation">]</span>  <span class="token comment" spellcheck="true">#里面的子对象被改变了</span></code></pre>
+<p>深拷贝，包含对象里面的自对象的拷贝，所以原始对象的改变不会造成深拷贝里任何子元素的改变  </p>
+<pre class=" language-bash"><code class="language-bash"> d<span class="token operator">=</span>copy.deepcopy<span class="token punctuation">(</span>alist<span class="token punctuation">)</span>
+<span class="token operator">>></span><span class="token operator">></span> print alist<span class="token punctuation">;</span>print d
+<span class="token punctuation">[</span>1, 2, 3, <span class="token punctuation">[</span><span class="token string">'a'</span>, <span class="token string">'b'</span><span class="token punctuation">]</span><span class="token punctuation">]</span>
+<span class="token punctuation">[</span>1, 2, 3, <span class="token punctuation">[</span><span class="token string">'a'</span>, <span class="token string">'b'</span><span class="token punctuation">]</span><span class="token punctuation">]</span><span class="token comment" spellcheck="true">#始终没有改变</span>
+<span class="token operator">>></span><span class="token operator">></span> alist.append<span class="token punctuation">(</span>5<span class="token punctuation">)</span>
+<span class="token operator">>></span><span class="token operator">></span> print alist<span class="token punctuation">;</span>print d
+<span class="token punctuation">[</span>1, 2, 3, <span class="token punctuation">[</span><span class="token string">'a'</span>, <span class="token string">'b'</span><span class="token punctuation">]</span>, 5<span class="token punctuation">]</span>
+<span class="token punctuation">[</span>1, 2, 3, <span class="token punctuation">[</span><span class="token string">'a'</span>, <span class="token string">'b'</span><span class="token punctuation">]</span><span class="token punctuation">]</span><span class="token comment" spellcheck="true">#始终没有改变</span>
+<span class="token operator">>></span><span class="token operator">></span> alist<span class="token punctuation">[</span>3<span class="token punctuation">]</span>
+<span class="token punctuation">[</span><span class="token string">'a'</span>, <span class="token string">'b'</span><span class="token punctuation">]</span>
+<span class="token operator">>></span><span class="token operator">></span> alist<span class="token punctuation">[</span>3<span class="token punctuation">]</span>.append<span class="token punctuation">(</span><span class="token string">"ccccc"</span><span class="token punctuation">)</span>
+<span class="token operator">>></span><span class="token operator">></span> print alist<span class="token punctuation">;</span>print d
+<span class="token punctuation">[</span>1, 2, 3, <span class="token punctuation">[</span><span class="token string">'a'</span>, <span class="token string">'b'</span>, <span class="token string">'ccccc'</span><span class="token punctuation">]</span>, 5<span class="token punctuation">]</span>
+<span class="token punctuation">[</span>1, 2, 3, <span class="token punctuation">[</span><span class="token string">'a'</span>, <span class="token string">'b'</span><span class="token punctuation">]</span><span class="token punctuation">]</span>  <span class="token comment" spellcheck="true">#始终没有改变</span></code></pre>
+<p>浅拷贝与深拷贝的本质原因：重新开辟内存来存储<br>review:#字符串类型是不可变的<br>#list是可变的，</p>
+<h3 id="浅拷贝："><a href="#浅拷贝：" class="headerlink" title="浅拷贝："></a>浅拷贝：</h3><pre class=" language-bash"><code class="language-bash">
+print<span class="token punctuation">(</span><span class="token string">"浅拷贝："</span><span class="token punctuation">)</span>
+<span class="token function">import</span> copy
+b<span class="token operator">=</span><span class="token punctuation">[</span>1,2,3,4,5<span class="token punctuation">]</span>
+print<span class="token punctuation">(</span><span class="token string">"id b:"</span>,id<span class="token punctuation">(</span>b<span class="token punctuation">))</span>
+h<span class="token operator">=</span>copy.copy<span class="token punctuation">(</span>b<span class="token punctuation">)</span>
+print<span class="token punctuation">(</span><span class="token string">"id h"</span>,id<span class="token punctuation">(</span>h<span class="token punctuation">))</span>
+print<span class="token punctuation">(</span>h<span class="token punctuation">)</span>
+h.append<span class="token punctuation">(</span>6<span class="token punctuation">)</span>
+print<span class="token punctuation">(</span>h<span class="token punctuation">)</span>
+print<span class="token punctuation">(</span><span class="token string">"id h"</span>,id<span class="token punctuation">(</span>h<span class="token punctuation">))</span>
+print<span class="token punctuation">(</span>b<span class="token punctuation">)</span>   <span class="token comment" spellcheck="true">#浅拷贝新的列表h改变了，原来的b没变。</span>
+
+b<span class="token punctuation">[</span>1<span class="token punctuation">]</span><span class="token operator">=</span><span class="token string">'n'</span>   <span class="token comment" spellcheck="true">#列表元素改变后，新的列表也没变</span>
+print<span class="token punctuation">(</span>h<span class="token punctuation">)</span>
+
+输出：
+浅拷贝：
+<span class="token punctuation">(</span><span class="token string">'id b:'</span>, 140165805110552<span class="token punctuation">)</span>
+<span class="token punctuation">(</span><span class="token string">'id h'</span>, 140165805110480<span class="token punctuation">)</span>
+<span class="token punctuation">[</span>1, 2, 3, 4, 5<span class="token punctuation">]</span>
+<span class="token punctuation">[</span>1, 2, 3, 4, 5, 6<span class="token punctuation">]</span>
+<span class="token punctuation">(</span><span class="token string">'id h'</span>, 140165805110480<span class="token punctuation">)</span>
+<span class="token punctuation">[</span>1, 2, 3, 4, 5<span class="token punctuation">]</span>
+<span class="token punctuation">[</span>1, 2, 3, 4, 5, 6<span class="token punctuation">]</span>
+</code></pre>
+<pre class=" language-bash"><code class="language-bash">a <span class="token operator">=</span> <span class="token punctuation">[</span>1, 2<span class="token punctuation">]</span>
+l1 <span class="token operator">=</span> <span class="token punctuation">[</span>3, 4, a<span class="token punctuation">]</span>
+l2 <span class="token operator">=</span> copy.copy<span class="token punctuation">(</span>l1<span class="token punctuation">)</span>
+print<span class="token punctuation">(</span>l1<span class="token punctuation">)</span>
+print<span class="token punctuation">(</span>l2<span class="token punctuation">)</span>
+print<span class="token punctuation">(</span>id<span class="token punctuation">(</span>l1<span class="token punctuation">))</span>
+print<span class="token punctuation">(</span>id<span class="token punctuation">(</span>l2<span class="token punctuation">))</span>
+a<span class="token punctuation">[</span>0<span class="token punctuation">]</span> <span class="token operator">=</span> 11
+
+print<span class="token punctuation">(</span>id<span class="token punctuation">(</span>l1<span class="token punctuation">))</span>
+print<span class="token punctuation">(</span>id<span class="token punctuation">(</span>l2<span class="token punctuation">))</span>
+print<span class="token punctuation">(</span>l1<span class="token punctuation">)</span>
+print<span class="token punctuation">(</span>l2<span class="token punctuation">)</span>
+输出：
+<span class="token punctuation">[</span>3, 4, <span class="token punctuation">[</span>1, 2<span class="token punctuation">]</span><span class="token punctuation">]</span>
+<span class="token punctuation">[</span>3, 4, <span class="token punctuation">[</span>1, 2<span class="token punctuation">]</span><span class="token punctuation">]</span>
+140624327425704
+140624326197400
+140624327425704
+140624326197400
+<span class="token punctuation">[</span>3, 4, <span class="token punctuation">[</span>11, 2<span class="token punctuation">]</span><span class="token punctuation">]</span>
+<span class="token punctuation">[</span>3, 4, <span class="token punctuation">[</span>11, 2<span class="token punctuation">]</span><span class="token punctuation">]</span></code></pre>
+<p><img src="https://img-blog.csdnimg.cn/20190523210140203.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2J1ZmVuZ3pq,size_16,color_FFFFFF,t_70" alt=""><br>可以看出浅拷贝，相当于只拷贝了一层，到a那里，a变化了，其值也就变化了。<br>Python中有多种方式实现浅拷贝，copy模块的copy函数、对象的copy函数、工厂方法、切片等；大多数情况下，编写程序时都是使用浅拷贝，除非有特定的需求；浅拷贝的优点：拷贝速度快，占用空间少，拷贝效率高。  </p>
+<h3 id="深拷贝"><a href="#深拷贝" class="headerlink" title="深拷贝:"></a>深拷贝:</h3><p>区别于浅拷贝只拷贝顶层引用，深拷贝会逐层进行拷贝，直到拷贝的所有引用都是不可变引用为止<br><img src="https://img-blog.csdnimg.cn/20190523210602950.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2J1ZmVuZ3pq,size_16,color_FFFFFF,t_70" alt=""></p>
+<pre class=" language-bash"><code class="language-bash">a <span class="token operator">=</span> <span class="token punctuation">[</span>1, 2<span class="token punctuation">]</span>
+l1 <span class="token operator">=</span> <span class="token punctuation">[</span>3, 4, a<span class="token punctuation">]</span>
+l2 <span class="token operator">=</span> copy.deepcopy<span class="token punctuation">(</span>l1<span class="token punctuation">)</span>
+print<span class="token punctuation">(</span>l1<span class="token punctuation">)</span>
+print<span class="token punctuation">(</span>l2<span class="token punctuation">)</span>
+print<span class="token punctuation">(</span>id<span class="token punctuation">(</span>l1<span class="token punctuation">))</span>
+print<span class="token punctuation">(</span>id<span class="token punctuation">(</span>l2<span class="token punctuation">))</span>
+a<span class="token punctuation">[</span>0<span class="token punctuation">]</span> <span class="token operator">=</span> 11
+
+print<span class="token punctuation">(</span>id<span class="token punctuation">(</span>l1<span class="token punctuation">))</span>
+print<span class="token punctuation">(</span>id<span class="token punctuation">(</span>l2<span class="token punctuation">))</span>
+print<span class="token punctuation">(</span>l1<span class="token punctuation">)</span>
+print<span class="token punctuation">(</span>l2<span class="token punctuation">)</span>
+
+输出：
+<span class="token punctuation">[</span>3, 4, <span class="token punctuation">[</span>1, 2<span class="token punctuation">]</span><span class="token punctuation">]</span>
+<span class="token punctuation">[</span>3, 4, <span class="token punctuation">[</span>1, 2<span class="token punctuation">]</span><span class="token punctuation">]</span>
+140673014398488
+140672779715720
+140673014398488
+140672779715720
+<span class="token punctuation">[</span>3, 4, <span class="token punctuation">[</span>11, 2<span class="token punctuation">]</span><span class="token punctuation">]</span>
+<span class="token punctuation">[</span>3, 4, <span class="token punctuation">[</span>1, 2<span class="token punctuation">]</span><span class="token punctuation">]</span> </code></pre>
+<p><em>为什么Python默认的拷贝方式是浅拷贝？</em></p>
+<ul>
+<li><p>时间角度：浅拷贝花费时间更少；</p>
+</li>
+<li><p>空间角度：浅拷贝花费内存更少；</p>
+</li>
+<li><p>效率角度：浅拷贝只拷贝顶层数据，一般情况下比深拷贝效率高。  </p>
+</li>
+</ul>
 
             </div>
             <hr/>
