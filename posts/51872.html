@@ -399,7 +399,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2020-09-14
+                    2020-09-17
                 </div>
                 
 
@@ -920,6 +920,93 @@ print<span class="token punctuation">(</span>l2<span class="token punctuation">)
 <li><p>效率角度：浅拷贝只拷贝顶层数据，一般情况下比深拷贝效率高。  </p>
 </li>
 </ul>
+<h2 id="登录and注册小程序"><a href="#登录and注册小程序" class="headerlink" title="登录and注册小程序"></a>登录and注册小程序</h2><p> 实现效果：</p>
+<ul>
+<li>登录唯一用户</li>
+<li>输错3次锁定账号</li>
+<li>注册唯一用户，密码位数6-16位</li>
+<li>密码校验两次</li>
+</ul>
+<p>account.db (作为用户数据库)</p>
+<pre class=" language-bash"><code class="language-bash">osp,123456abc,0
+stf,qazwsx123,0
+umr,123123abab,0</code></pre>
+<p>登录：</p>
+<pre class=" language-bash"><code class="language-bash"><span class="token comment" spellcheck="true">#  -*- coding: utf-8  -*-</span>
+<span class="token comment" spellcheck="true"># 1.先做一个字典存用户数据</span>
+accounts <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token punctuation">}</span>
+
+<span class="token comment" spellcheck="true"># 2.将文档用户数据写入字典</span>
+f <span class="token operator">=</span> open<span class="token punctuation">(</span><span class="token string">"account.db"</span>,<span class="token string">"r"</span>,encoding<span class="token operator">=</span><span class="token string">"utf-8"</span><span class="token punctuation">)</span>
+<span class="token keyword">for</span> line <span class="token keyword">in</span> f <span class="token keyword">:</span>
+    line <span class="token operator">=</span> line.strip<span class="token punctuation">(</span><span class="token punctuation">)</span>.split<span class="token punctuation">(</span><span class="token string">","</span><span class="token punctuation">)</span>
+    accounts<span class="token punctuation">[</span>line<span class="token punctuation">[</span>0<span class="token punctuation">]</span><span class="token punctuation">]</span> <span class="token operator">=</span> line
+<span class="token comment" spellcheck="true"># print(accounts)</span>
+
+<span class="token comment" spellcheck="true"># 3.搞个 loop 要求用户输入信息去判断</span>
+
+print<span class="token punctuation">(</span><span class="token string">"-----用户登录-----"</span><span class="token punctuation">)</span>
+<span class="token keyword">while</span> True:                              <span class="token comment" spellcheck="true">#判断用户名状态</span>
+    user <span class="token operator">=</span> input<span class="token punctuation">(</span><span class="token string">"请输入用户名："</span><span class="token punctuation">)</span>.strip<span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token keyword">if</span> user not <span class="token keyword">in</span> accounts:
+        print<span class="token punctuation">(</span><span class="token string">"用户名不存在，请重新输入。。。"</span><span class="token punctuation">)</span>
+        <span class="token keyword">continue</span>
+    <span class="token keyword">elif</span>  accounts<span class="token punctuation">[</span>user<span class="token punctuation">]</span><span class="token punctuation">[</span>2<span class="token punctuation">]</span> <span class="token operator">==</span> <span class="token string">"1"</span><span class="token keyword">:</span>
+        print<span class="token punctuation">(</span>f<span class="token string">"{user}此账户已被锁定，请联系管理员。。。"</span><span class="token punctuation">)</span>
+        <span class="token keyword">continue</span>
+    count <span class="token operator">=</span> 0
+    <span class="token keyword">while</span> count <span class="token operator">&lt;</span> 3:                      <span class="token comment" spellcheck="true">#控制密码（判断密码正确否，三次锁定）</span>
+        password <span class="token operator">=</span> input<span class="token punctuation">(</span><span class="token string">"请输入密码："</span><span class="token punctuation">)</span>.strip<span class="token punctuation">(</span><span class="token punctuation">)</span>
+        <span class="token keyword">if</span> password <span class="token operator">==</span>  accounts<span class="token punctuation">[</span>user<span class="token punctuation">]</span><span class="token punctuation">[</span>1<span class="token punctuation">]</span>:
+            print<span class="token punctuation">(</span>f<span class="token string">"welcome'{user}'...登入成功。。。"</span><span class="token punctuation">)</span>
+        else:
+            print<span class="token punctuation">(</span><span class="token string">"密码输入错误请重试。。。"</span><span class="token punctuation">)</span>
+        count +<span class="token operator">=</span> 1
+    <span class="token keyword">if</span> count <span class="token operator">==</span> 3 and password <span class="token operator">!=</span> accounts<span class="token punctuation">[</span>user<span class="token punctuation">]</span><span class="token punctuation">[</span>1<span class="token punctuation">]</span> <span class="token keyword">:</span>   <span class="token comment" spellcheck="true">#小bug，就是输错两次，第三次正确也会锁号</span>
+        print<span class="token punctuation">(</span>f<span class="token string">"输错了{count}次密码，账号{user}已锁定。。。"</span><span class="token punctuation">)</span> <span class="token comment" spellcheck="true">#必须补充条件</span>
+        <span class="token comment" spellcheck="true"># 1.先改在内存中dict 账号信息的用户状态</span>
+        <span class="token comment" spellcheck="true"># 2.把dict里的数据转成原account.db数据格式，并存回文件</span>
+        accounts<span class="token punctuation">[</span>user<span class="token punctuation">]</span><span class="token punctuation">[</span>2<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token string">"1"</span>
+        f_new <span class="token operator">=</span>open<span class="token punctuation">(</span><span class="token string">"account.db"</span>,<span class="token string">"w"</span>,<span class="token punctuation">)</span>
+        <span class="token keyword">for</span> user,val <span class="token keyword">in</span> accounts.items<span class="token punctuation">(</span><span class="token punctuation">)</span>: <span class="token comment" spellcheck="true">#字典转列表</span>
+            line <span class="token operator">=</span> <span class="token string">","</span>.join<span class="token punctuation">(</span>val<span class="token punctuation">)</span> + <span class="token string">"\n"</span>  <span class="token comment" spellcheck="true">#把列表再转成字符</span>
+            f_new.write<span class="token punctuation">(</span>line<span class="token punctuation">)</span>
+        f_new.close<span class="token punctuation">(</span><span class="token punctuation">)</span>
+    else:
+        pass
+        exit<span class="token punctuation">(</span><span class="token string">"bye..."</span><span class="token punctuation">)</span></code></pre>
+<p>注册：</p>
+<pre class=" language-bash"><code class="language-bash">f <span class="token operator">=</span> open<span class="token punctuation">(</span><span class="token string">"account.db"</span>, mode<span class="token operator">=</span><span class="token string">"a+"</span><span class="token punctuation">)</span>  <span class="token comment" spellcheck="true"># a+ 模式光标默认放置在末尾，太艹了，卡了好久</span>
+f.seek<span class="token punctuation">(</span>0<span class="token punctuation">)</span>   <span class="token comment" spellcheck="true">#将光标移至开头</span>
+accounts <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token punctuation">}</span> <span class="token comment" spellcheck="true">#空字典存数据</span>
+<span class="token keyword">for</span> line <span class="token keyword">in</span> f <span class="token keyword">:</span>             <span class="token comment" spellcheck="true">#将数据从文件读到字典（也就是加载到内存）</span>
+    line <span class="token operator">=</span> line.strip<span class="token punctuation">(</span><span class="token punctuation">)</span>.split<span class="token punctuation">(</span><span class="token string">","</span><span class="token punctuation">)</span>
+    accounts<span class="token punctuation">[</span>line<span class="token punctuation">[</span>0<span class="token punctuation">]</span><span class="token punctuation">]</span> <span class="token operator">=</span> line
+<span class="token comment" spellcheck="true">#print(accounts)</span>
+
+print<span class="token punctuation">(</span><span class="token string">"------用户注册------"</span><span class="token punctuation">)</span>
+user <span class="token operator">=</span> input<span class="token punctuation">(</span><span class="token string">"请输入用户名："</span><span class="token punctuation">)</span>
+<span class="token keyword">while</span> f<span class="token string">"{user}"</span> <span class="token keyword">in</span> accounts.keys<span class="token punctuation">(</span><span class="token punctuation">)</span>:  <span class="token comment" spellcheck="true">#比对用户名是否重复</span>
+    print<span class="token punctuation">(</span><span class="token string">"用户名已存在请重试..."</span><span class="token punctuation">)</span>
+    user <span class="token operator">=</span> input<span class="token punctuation">(</span><span class="token string">"请输入用户名："</span><span class="token punctuation">)</span>
+
+print<span class="token punctuation">(</span>f<span class="token string">"用户名为：{user}"</span><span class="token punctuation">)</span>
+password <span class="token operator">=</span> None
+password2 <span class="token operator">=</span> <span class="token string">"None@!<span class="token variable">$@#@</span>$<span class="token variable">$##</span>%$%#"</span>
+<span class="token keyword">while</span> password <span class="token operator">!=</span> password2:            <span class="token comment" spellcheck="true">#二次输入验证</span>
+    password <span class="token operator">=</span> input<span class="token punctuation">(</span><span class="token string">"请输入密码："</span><span class="token punctuation">)</span>.strip<span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token keyword">if</span> len<span class="token punctuation">(</span>password<span class="token punctuation">)</span> <span class="token operator">&lt;</span> 6 or len<span class="token punctuation">(</span>password<span class="token punctuation">)</span> <span class="token operator">></span> 16:   <span class="token comment" spellcheck="true">#字数限制</span>
+        print<span class="token punctuation">(</span><span class="token string">"不符合密码规范请重新输入（6-16个字或拼音）"</span><span class="token punctuation">)</span>
+        <span class="token keyword">continue</span>
+    password2 <span class="token operator">=</span> input<span class="token punctuation">(</span><span class="token string">"请再次输入密码："</span><span class="token punctuation">)</span>.strip<span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token keyword">if</span> password <span class="token operator">!=</span> password2:
+        print<span class="token punctuation">(</span><span class="token string">"两次输入的密码不相同请重试。。。"</span><span class="token punctuation">)</span>
+
+print<span class="token punctuation">(</span>f<span class="token string">"恭喜您注册成功...用户名为：{user}"</span><span class="token punctuation">)</span>
+data_base <span class="token operator">=</span> f<span class="token string">"{user},{password2},0"</span>
+f.write<span class="token punctuation">(</span>f<span class="token string">"\n{data_base}"</span><span class="token punctuation">)</span>
+f.close<span class="token punctuation">(</span><span class="token punctuation">)</span>
+</code></pre>
 
             </div>
             <hr/>
