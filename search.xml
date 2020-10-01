@@ -4,6 +4,56 @@
   
     
     <entry>
+      <title>pypi国内镜像源</title>
+      <link href="/posts/3513.html"/>
+      <url>/posts/3513.html</url>
+      
+        <content type="html"><![CDATA[<h3 id="pypi的国内镜像源："><a href="#pypi的国内镜像源：" class="headerlink" title="pypi的国内镜像源："></a>pypi的国内镜像源：</h3><ul><li><p>阿里云 <a href="http://mirrors.aliyun.com/pypi/simple/" target="_blank" rel="noopener">http://mirrors.aliyun.com/pypi/simple/</a>  </p></li><li><p>中国科技大学 <a href="https://pypi.mirrors.ustc.edu.cn/simple/" target="_blank" rel="noopener">https://pypi.mirrors.ustc.edu.cn/simple/</a></p></li></ul><ul><li><p>豆瓣(douban) <a href="http://pypi.douban.com/simple/" target="_blank" rel="noopener">http://pypi.douban.com/simple/</a>  </p></li><li><p>清华大学 <a href="https://pypi.tuna.tsinghua.edu.cn/simple/" target="_blank" rel="noopener">https://pypi.tuna.tsinghua.edu.cn/simple/</a>  </p></li><li><p>中国科学技术大学 <a href="http://pypi.mirrors.ustc.edu.cn/simple/" target="_blank" rel="noopener">http://pypi.mirrors.ustc.edu.cn/simple/</a>  </p></li></ul><p><img src="http://fp1.fghrsh.net/2020/10/01/0a7918b986f595b4c55b66262223c1aa.jpg" alt=""></p>]]></content>
+      
+      
+      <categories>
+          
+          <category> python入门 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> python </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>正则零宽断言</title>
+      <link href="/posts/22595.html"/>
+      <url>/posts/22595.html</url>
+      
+        <content type="html"><![CDATA[<h3 id="正则表达式之零宽断言"><a href="#正则表达式之零宽断言" class="headerlink" title="正则表达式之零宽断言"></a>正则表达式之零宽断言</h3><p>零宽断言是正则表达式的一种方法，用于查找在某些内容（但并不包括这些内容）之前或者之后的东西，也就是说他们像\b（匹配一个单词边界，也就是单词和空格间的位置，正则表达式的匹配有两种概念，一种是匹配字符，一种是匹配位置，这里的\b就是匹配位置，例如，“er\b”可以匹配“never”中的“er”，但不能匹配“verb”中的“er”），^（匹配输入字行首），$（匹配输入字行尾）那样用于指定一个位置，这个位置应该满足一定的条件（即断言），因此它们也被称为零宽断言。断言用来声明一个应该为真的事实，正则表达式中只有当断言为真时才会继续进行匹配。</p><p>零宽断言一共分为四种</p><p>1．零宽度正预测先行断言 (?=exp)匹配exp前面的位置</p><p>例：\b\w+(?=ing\b)，匹配以ing结尾的单词的前面部分(除了ing以外的部分)，如查找I’m singing while you’re dancing.时，它会匹配sing和danc。</p><p>2．零宽度正回顾后发断言 (?&lt;exp)匹配exp后面的位置</p><p>例：比如(?&lt;=\bre)\w+\b会匹配以re开头的单词的后半部分(除了re以外的部分)，例如在查找reading a book时，它匹配ading。</p><p>3．零宽度负预测先行断言 (?!exp)匹配后面跟的不是exp的位置</p><p>例：例如：\d{3}(?!\d)匹配三位数字，而且这三位数字的后面不能是数字；\b((?!abc)\w)+\b匹配不包含连续字符串abc的单词。</p><p>4．零宽度负回顾后发断言 (?&lt;!exp)匹配前面不是exp的位置</p><p>例：(?&lt;![a-z])\d{7}匹配前面不是小写字母的七位数字。</p><pre class=" language-bash"><code class="language-bash"><span class="token comment" spellcheck="true"># -*- coding:utf-8 -*-</span><span class="token comment" spellcheck="true"># 零宽断言</span><span class="token function">import</span> res <span class="token operator">=</span> r<span class="token string">'eating apple seeing paper watching movie'</span>m1 <span class="token operator">=</span> re.findall<span class="token punctuation">(</span>r<span class="token string">'(\b\w+?)ing'</span>,s<span class="token punctuation">)</span>print<span class="token punctuation">(</span>m1<span class="token punctuation">)</span> <span class="token comment" spellcheck="true">#['eat', 'see', 'watch']</span>m2 <span class="token operator">=</span> re.findall<span class="token punctuation">(</span>r<span class="token string">'(.+?)(?=ing)'</span>,s<span class="token punctuation">)</span>print<span class="token punctuation">(</span>m2<span class="token punctuation">)</span>  <span class="token comment" spellcheck="true">#['eat', 'ing apple see', 'ing paper watch']</span>m3 <span class="token operator">=</span> re.findall<span class="token punctuation">(</span>r<span class="token string">'(.+?)(?&lt;=ing)'</span>,s<span class="token punctuation">)</span>print<span class="token punctuation">(</span>m3<span class="token punctuation">)</span>  <span class="token comment" spellcheck="true">#['eating', ' apple seeing', ' paper watching']</span>s <span class="token operator">=</span> <span class="token string">'unite one unethical ethics use untie ultimate'</span>m4 <span class="token operator">=</span> re.findall<span class="token punctuation">(</span>r<span class="token string">'\b(?!un)\w+\b'</span>,s<span class="token punctuation">)</span>print<span class="token punctuation">(</span>m4<span class="token punctuation">)</span>  <span class="token comment" spellcheck="true">#['one', 'ethics', 'use', 'ultimate']</span>m5 <span class="token operator">=</span> re.findall<span class="token punctuation">(</span>r<span class="token string">'(?&lt;![a-z])\d{3,}'</span>,<span class="token string">'abc123,123,4567'</span><span class="token punctuation">)</span>print<span class="token punctuation">(</span>m5<span class="token punctuation">)</span>  <span class="token comment" spellcheck="true">#['123', '4567']</span></code></pre>]]></content>
+      
+      
+      <categories>
+          
+          <category> python入门 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> python </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>零之使魔</title>
       <link href="/posts/15960.html"/>
       <url>/posts/15960.html</url>
@@ -223,19 +273,6 @@
             <tag> tools </tag>
             
         </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>Hello World</title>
-      <link href="/posts/16107.html"/>
-      <url>/posts/16107.html</url>
-      
-        <content type="html"><![CDATA[<p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p><h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><pre class=" language-bash"><code class="language-bash">$ hexo new <span class="token string">"My New Post"</span></code></pre><p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p><h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><pre class=" language-bash"><code class="language-bash">$ hexo server</code></pre><p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p><h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><pre class=" language-bash"><code class="language-bash">$ hexo generate</code></pre><p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p><h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><pre class=" language-bash"><code class="language-bash">$ hexo deploy</code></pre><p>More info: <a href="https://hexo.io/docs/one-command-deployment.html" target="_blank" rel="noopener">Deployment</a></p>]]></content>
-      
-      
       
     </entry>
     
