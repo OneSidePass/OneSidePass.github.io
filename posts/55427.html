@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="pypi国内镜像源, OSP的小站">
+    <meta name="keywords" content="ascii_art, OSP的小站">
     <meta name="description" content="大好きです桜島麻衣">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>pypi国内镜像源 | OSP的小站</title>
+    <title>ascii_art | OSP的小站</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -245,12 +245,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('http://fp1.fghrsh.net/2020/10/01/767f2a4347045859ba61fd0a613a08a1.md.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('http://fp1.fghrsh.net/2020/10/04/1b6cbc51b45d17a8abbb490ca1bbc118.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">pypi国内镜像源</h1>
+                    <h1 class="description center-align post-title">ascii_art</h1>
                 </div>
             </div>
         </div>
@@ -379,8 +379,8 @@
                     <div class="post-cate">
                         <i class="fas fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/categories/python%E5%85%A5%E9%97%A8/" class="post-category">
-                                python入门
+                            <a href="/categories/py-ascii-art/" class="post-category">
+                                py_ascii_art
                             </a>
                         
                     </div>
@@ -392,14 +392,14 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2020-10-01
+                    2020-10-04
                 </div>
                 
 
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2020-10-01
+                    2020-10-04
                 </div>
                 
 
@@ -418,21 +418,79 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h3 id="pypi的国内镜像源："><a href="#pypi的国内镜像源：" class="headerlink" title="pypi的国内镜像源："></a>pypi的国内镜像源：</h3><ul>
-<li><p>阿里云 <a href="http://mirrors.aliyun.com/pypi/simple/" target="_blank" rel="noopener">http://mirrors.aliyun.com/pypi/simple/</a>  </p>
-</li>
-<li><p>中国科技大学 <a href="https://pypi.mirrors.ustc.edu.cn/simple/" target="_blank" rel="noopener">https://pypi.mirrors.ustc.edu.cn/simple/</a></p>
-</li>
-</ul>
-<ul>
-<li><p>豆瓣(douban) <a href="http://pypi.douban.com/simple/" target="_blank" rel="noopener">http://pypi.douban.com/simple/</a>  </p>
-</li>
-<li><p>清华大学 <a href="https://pypi.tuna.tsinghua.edu.cn/simple/" target="_blank" rel="noopener">https://pypi.tuna.tsinghua.edu.cn/simple/</a>  </p>
-</li>
-<li><p>中国科学技术大学 <a href="http://pypi.mirrors.ustc.edu.cn/simple/" target="_blank" rel="noopener">http://pypi.mirrors.ustc.edu.cn/simple/</a>  </p>
-</li>
-</ul>
-<p><img src="http://fp1.fghrsh.net/2020/10/01/0a7918b986f595b4c55b66262223c1aa.jpg" alt=""></p>
+                <h3 id="ascii字符画"><a href="#ascii字符画" class="headerlink" title="ascii字符画"></a>ascii字符画</h3><pre class=" language-bash"><code class="language-bash">from PIL <span class="token function">import</span> Image, ImageDraw, ImageFont
+<span class="token function">import</span> argparse
+<span class="token function">import</span> numpy as np
+
+sample_rate <span class="token operator">=</span> 0.4
+
+def ascii_art<span class="token punctuation">(</span>file<span class="token punctuation">)</span>:
+    im <span class="token operator">=</span> Image.open<span class="token punctuation">(</span>file<span class="token punctuation">)</span>
+
+    <span class="token comment" spellcheck="true"># Compute letter aspect ratio</span>
+    font <span class="token operator">=</span> ImageFont.load_default<span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token comment" spellcheck="true"># font = ImageFont.truetype("SourceCodePro-Bold.ttf", size=12)</span>
+    aspect_ratio <span class="token operator">=</span> font.getsize<span class="token punctuation">(</span><span class="token string">"x"</span><span class="token punctuation">)</span><span class="token punctuation">[</span>0<span class="token punctuation">]</span> / font.getsize<span class="token punctuation">(</span><span class="token string">"x"</span><span class="token punctuation">)</span><span class="token punctuation">[</span>1<span class="token punctuation">]</span>
+    new_im_size <span class="token operator">=</span> np.array<span class="token punctuation">(</span>
+        <span class="token punctuation">[</span>im.size<span class="token punctuation">[</span>0<span class="token punctuation">]</span> * sample_rate, im.size<span class="token punctuation">[</span>1<span class="token punctuation">]</span> * sample_rate * aspect_ratio<span class="token punctuation">]</span>
+    <span class="token punctuation">)</span>.astype<span class="token punctuation">(</span>int<span class="token punctuation">)</span>
+
+    <span class="token comment" spellcheck="true"># Downsample the image</span>
+    im <span class="token operator">=</span> im.resize<span class="token punctuation">(</span>new_im_size<span class="token punctuation">)</span>
+
+    <span class="token comment" spellcheck="true"># Keep a copy of image for color sampling</span>
+    im_color <span class="token operator">=</span> np.array<span class="token punctuation">(</span>im<span class="token punctuation">)</span>
+
+    <span class="token comment" spellcheck="true"># Convert to gray scale image</span>
+    im <span class="token operator">=</span> im.convert<span class="token punctuation">(</span><span class="token string">"L"</span><span class="token punctuation">)</span>
+
+    <span class="token comment" spellcheck="true"># Convert to numpy array for image manipulation</span>
+    im <span class="token operator">=</span> np.array<span class="token punctuation">(</span>im<span class="token punctuation">)</span>
+
+    <span class="token comment" spellcheck="true"># Defines all the symbols in ascending order that will form the final ascii</span>
+    symbols <span class="token operator">=</span> np.array<span class="token punctuation">(</span>list<span class="token punctuation">(</span><span class="token string">" .-vM"</span><span class="token punctuation">))</span>
+
+    <span class="token comment" spellcheck="true"># Normalize minimum and maximum to [0, max_symbol_index)</span>
+    im <span class="token operator">=</span> <span class="token punctuation">(</span>im - im.min<span class="token punctuation">(</span><span class="token punctuation">))</span> / <span class="token punctuation">(</span>im.max<span class="token punctuation">(</span><span class="token punctuation">)</span> - im.min<span class="token punctuation">(</span><span class="token punctuation">))</span> * <span class="token punctuation">(</span>symbols.size - 1<span class="token punctuation">)</span>
+
+    <span class="token comment" spellcheck="true"># Generate the ascii art</span>
+    ascii <span class="token operator">=</span> symbols<span class="token punctuation">[</span>im.astype<span class="token punctuation">(</span>int<span class="token punctuation">)</span><span class="token punctuation">]</span>
+
+    <span class="token comment" spellcheck="true"># Create an output image for drawing ascii text</span>
+    letter_size <span class="token operator">=</span> font.getsize<span class="token punctuation">(</span><span class="token string">"x"</span><span class="token punctuation">)</span>
+    im_out_size <span class="token operator">=</span> new_im_size * letter_size
+    bg_color <span class="token operator">=</span> <span class="token string">"black"</span>
+    im_out <span class="token operator">=</span> Image.new<span class="token punctuation">(</span><span class="token string">"RGB"</span>, tuple<span class="token punctuation">(</span>im_out_size<span class="token punctuation">)</span>, bg_color<span class="token punctuation">)</span>
+    draw <span class="token operator">=</span> ImageDraw.Draw<span class="token punctuation">(</span>im_out<span class="token punctuation">)</span>
+
+    <span class="token comment" spellcheck="true"># Draw text</span>
+    y <span class="token operator">=</span> 0
+    <span class="token keyword">for</span> i, line <span class="token keyword">in</span> enumerate<span class="token punctuation">(</span>ascii<span class="token punctuation">)</span>:
+        <span class="token keyword">for</span> j, ch <span class="token keyword">in</span> enumerate<span class="token punctuation">(</span>line<span class="token punctuation">)</span>:
+            color <span class="token operator">=</span> tuple<span class="token punctuation">(</span>im_color<span class="token punctuation">[</span>i, j<span class="token punctuation">]</span><span class="token punctuation">)</span>  <span class="token comment" spellcheck="true"># sample color from original image</span>
+            draw.text<span class="token punctuation">((</span>letter_size<span class="token punctuation">[</span>0<span class="token punctuation">]</span> * j, y<span class="token punctuation">)</span>, ch<span class="token punctuation">[</span>0<span class="token punctuation">]</span>, fill<span class="token operator">=</span>color, font<span class="token operator">=</span>font<span class="token punctuation">)</span>
+        y +<span class="token operator">=</span> letter_size<span class="token punctuation">[</span>1<span class="token punctuation">]</span>  <span class="token comment" spellcheck="true"># increase y by letter height</span>
+
+    <span class="token comment" spellcheck="true"># Save image file</span>
+    im_out.save<span class="token punctuation">(</span>file + <span class="token string">".ascii.png"</span><span class="token punctuation">)</span>
+
+
+<span class="token keyword">if</span> __name__ <span class="token operator">==</span> <span class="token string">"__main__"</span><span class="token keyword">:</span>
+    parser <span class="token operator">=</span> argparse.ArgumentParser<span class="token punctuation">(</span>description<span class="token operator">=</span><span class="token string">"Convert any image to ascii art."</span><span class="token punctuation">)</span>
+
+    parser.add_argument<span class="token punctuation">(</span>
+        <span class="token string">"file"</span>, type<span class="token operator">=</span>str, help<span class="token operator">=</span><span class="token string">"input image file"</span>,
+    <span class="token punctuation">)</span>
+    args <span class="token operator">=</span> parser.parse_args<span class="token punctuation">(</span><span class="token punctuation">)</span>
+
+    ascii_art<span class="token punctuation">(</span>args.file<span class="token punctuation">)</span>
+
+<span class="token comment" spellcheck="true"># for i in range(1,6571):</span>
+<span class="token comment" spellcheck="true">#     while len(str(i)) != 5:</span>
+<span class="token comment" spellcheck="true">#         i = "0"+ str(i)</span>
+<span class="token comment" spellcheck="true">#     v = "badapple/",f"foo-0{i}",".jpeg"</span>
+
+</code></pre>
 
             </div>
             <hr/>
@@ -458,7 +516,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="http://OneSidePass.github.io/posts/3513.html">http://OneSidePass.github.io/posts/3513.html</a>
+                    <a href="http://OneSidePass.github.io/posts/55427.html">http://OneSidePass.github.io/posts/55427.html</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -932,24 +990,24 @@
             <div class="article-badge left-badge text-color">
                 <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/posts/55427.html">
+                <a href="/posts/22261.html">
                     <div class="card-image">
                         
-                        <img src="http://fp1.fghrsh.net/2020/10/04/1b6cbc51b45d17a8abbb490ca1bbc118.jpg" class="responsive-img" alt="ascii_art">
+                        <img src="http://fp1.fghrsh.net/2020/10/04/05d2f352bc51a3a9a9da00627fc456a8.png" class="responsive-img" alt="format_change_v1.0.0">
                         
-                        <span class="card-title">ascii_art</span>
+                        <span class="card-title">format_change_v1.0.0</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            ascii字符画from PIL import Image, ImageDraw, ImageFont
-import argparse
-import numpy as np
+                            基于ffmpeg集成的转码工具
+目前水平有限 基操勿六* 可实现的功能*  （基于ffmpeg进行的） (ffmpeg官网)
+1.将视频提取设定帧转为N张图片
+2.将N张图片封装为视频格式（可设置帧数）
+3.音视频格式的简单转换
 
-sample_rate = 0.4
-
-def ascii_art
+下载do
                         
                     </div>
                     <div class="publish-info">
@@ -960,8 +1018,8 @@ def ascii_art
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/py-ascii-art/" class="post-category">
-                                    py_ascii_art
+                            <a href="/categories/python%E9%A1%B9%E7%9B%AE/" class="post-category">
+                                    python项目
                                 </a>
                             
                             
@@ -986,18 +1044,25 @@ def ascii_art
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/posts/22595.html">
+                <a href="/posts/3513.html">
                     <div class="card-image">
                         
-                        <img src="http://fp1.fghrsh.net/2020/10/01/9307fd296437e4d7874ea7de185447e1.md.jpg" class="responsive-img" alt="正则零宽断言">
+                        <img src="http://fp1.fghrsh.net/2020/10/01/767f2a4347045859ba61fd0a613a08a1.md.jpg" class="responsive-img" alt="pypi国内镜像源">
                         
-                        <span class="card-title">正则零宽断言</span>
+                        <span class="card-title">pypi国内镜像源</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            正则表达式之零宽断言零宽断言是正则表达式的一种方法，用于查找在某些内容（但并不包括这些内容）之前或者之后的东西，也就是说他们像\b（匹配一个单词边界，也就是单词和空格间的位置，正则表达式的匹配有两种概念，一种是匹配字符，一种是匹配位置，这里
+                            pypi的国内镜像源：
+阿里云 http://mirrors.aliyun.com/pypi/simple/  
+
+中国科技大学 https://pypi.mirrors.ustc.edu.cn/simple/
+
+
+
+豆瓣(douban) 
                         
                     </div>
                     <div class="publish-info">
