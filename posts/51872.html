@@ -399,7 +399,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2020-09-17
+                    2021-02-18
                 </div>
                 
 
@@ -1007,7 +1007,52 @@ data_base <span class="token operator">=</span> f<span class="token string">"{us
 f.write<span class="token punctuation">(</span>f<span class="token string">"\n{data_base}"</span><span class="token punctuation">)</span>
 f.close<span class="token punctuation">(</span><span class="token punctuation">)</span>
 </code></pre>
+<h3 id="列表推导式"><a href="#列表推导式" class="headerlink" title="列表推导式"></a>列表推导式</h3><pre><code># 列表推导式  格式：[表达式 for 变量 in 旧列表] 或者 [表达式 for 变量 in 旧列表 if 条件]
 
+names = [&#39;tom&#39;,&#39;lili&#39;,&#39;abc&#39;,&#39;jack&#39;,&#39;steven&#39;,&#39;luise&#39;,&#39;bob&#39;,&#39;ha&#39;]
+result = [name for name in names if len(name) &gt; 3]        # 过滤掉长度小于或等于3的人名
+print(result)    # [&#39;lili&#39;, &#39;jack&#39;, &#39;steven&#39;, &#39;luise&#39;]
+
+result = [name.capitalize() for name in names if len(name) &gt; 3]   # .capitalize()方法 首字母大写 or .title()
+print(result)    # [&#39;Lili&#39;, &#39;Jack&#39;, &#39;Steven&#39;, &#39;Luise&#39;]
+
+# 底层实现
+&#39;&#39;&#39;
+def func(names):
+    newlist = []
+    for name in names :
+        name = name.title()
+        newlist.append(name)  
+    return newlist
+&#39;&#39;&#39;
+
+# 将1-100之间能被3整除的组成一个新的列表
+
+newlist = [i for i in range(1,101) if i % 3 == 0 % 5 == 0 ]
+print(newlist)
+
+list = [[1,3,5],[2,4,6],[3,6,9]]
+newlist = [i[-1] for i in list]
+print(newlist)   #[5, 6, 9]
+&#39;&#39;&#39; 相当于:
+for i in list :
+    newlist.append(i[-1])
+&#39;&#39;&#39;
+# -------------------------------------------------------------------------------------
+# 列表套字典的实现：
+
+dict1 = {&#39;name&#39;:&#39;tom&#39;,&#39;salary&#39;:5000}
+dict2 = {&#39;name&#39;:&#39;lucy&#39;,&#39;salary&#39;:8000}
+dict3 = {&#39;name&#39;:&#39;jack&#39;,&#39;salary&#39;:4500}
+dict4 = {&#39;name&#39;:&#39;lily&#39;,&#39;salary&#39;:3000}
+
+list1 = [dict1,dict2,dict3,dict4]  # [ {} , {} , {} , {} ]
+
+# if 薪资大于5000加200 ，低于等于5000加500
+
+newlist = [employee[&#39;salary&#39;] + 200 if employee[&#39;salary&#39;] &gt; 5000 else employee[&#39;salary&#39;] + 200 for employee in list1]
+print(newlist)  # [5200, 8200, 4700, 3200]
+</code></pre>
             </div>
             <hr/>
 
